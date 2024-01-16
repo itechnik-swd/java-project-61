@@ -22,3 +22,11 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+//compileJava {
+//    options.release = 21.0.1
+//}
+
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
