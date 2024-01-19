@@ -24,9 +24,11 @@ tasks.test {
     useJUnitPlatform()
 }
 
-//compileJava {
-//    options.release = 21.0.1
-//}
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
 
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
