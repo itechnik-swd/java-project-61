@@ -6,7 +6,6 @@ import static hexlet.code.Cli.introduce;
 public class Prime {
     public static void primeCheck() {
         introduce();
-
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int counter = 0;

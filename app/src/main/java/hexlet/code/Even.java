@@ -6,7 +6,6 @@ import static hexlet.code.Cli.introduce;
 public class Even {
     public static void parityCheck() {
         introduce();
-
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int counter = 0;

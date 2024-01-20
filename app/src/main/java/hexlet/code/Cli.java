@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Cli {
     private static String userName;
-    public Cli (String userName) {
-        Cli.userName = userName;
+    Cli (String userName) {
+        this.userName = userName;
     }
     public static void introduce() {
         Scanner scanner = new Scanner(System.in);
@@ -20,5 +20,4 @@ public class Cli {
     public static String getUserName() {
         return userName;
     }
-
 }

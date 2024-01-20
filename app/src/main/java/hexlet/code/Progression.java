@@ -7,7 +7,6 @@ import static hexlet.code.Cli.introduce;
 public class Progression {
     public static void makeProgression() {
         introduce();
-
         System.out.println("What number is missing in the progression?");
 
         int counter = 0;
