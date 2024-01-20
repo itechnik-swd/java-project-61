@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 import static hexlet.code.Cli.introduce;
 import static hexlet.code.Even.parityCheck;
+import static hexlet.code.Prime.primeCheck;
 import static hexlet.code.Progression.makeProgression;
 
 public class App {
@@ -10,7 +11,7 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
 
         String[] menu = {"1 - Greet", "2 - Even", "3 - Calc", "4 - GCD",
-                "5 - Progression", "0 - Exit"};
+                "5 - Progression", "6 - Prime", "0 - Exit"};
 
         for (String element : menu) {
             System.out.println(element);
@@ -29,6 +30,9 @@ public class App {
                 break;
             case 5:
                 makeProgression();
+                break;
+            case 6:
+                primeCheck();
                 break;
         }
     }
