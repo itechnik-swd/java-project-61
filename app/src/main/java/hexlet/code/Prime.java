@@ -1,16 +1,11 @@
 package hexlet.code;
 
 import java.util.Scanner;
+import static hexlet.code.Cli.introduce;
 
 public class Prime {
     public static void primeCheck() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println();
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
+        introduce();
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
@@ -20,6 +15,7 @@ public class Prime {
             int questionNumber = (int) (Math.random() * 100);
             System.out.println("Question: " + questionNumber);
             System.out.print("Your answer: ");
+            Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.next();
 
             if ((isPrime(questionNumber) & userAnswer.equals("yes")) |
@@ -28,17 +24,17 @@ public class Prime {
                 counter++;
             } else if (isPrime(questionNumber)) {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was 'yes'");
-                System.out.println("Let's try again, " + userName + "!");
+                System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was 'no'");
-                System.out.println("Let's try again, " + userName + "!");
+                System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
             }
         }
 
         if (counter == 3) {
-            System.out.println("Congratulations, " + userName + "!");
+            System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
     }
     static boolean isPrime(int n) {

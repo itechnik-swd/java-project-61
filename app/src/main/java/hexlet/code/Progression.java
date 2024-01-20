@@ -2,16 +2,11 @@ package hexlet.code;
 
 import java.util.Random;
 import java.util.Scanner;
+import static hexlet.code.Cli.introduce;
 
 public class Progression {
     public static void makeProgression() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println();
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
+        introduce();
 
         System.out.println("What number is missing in the progression?");
 
@@ -40,7 +35,6 @@ public class Progression {
 
             System.out.println("Question: " + questionNumbers);
             System.out.print("Your answer: ");
-
             Scanner sc = new Scanner(System.in);
             int userAnswer = sc.nextInt();
 
@@ -50,12 +44,12 @@ public class Progression {
                 } else {
                     System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                             + progressionNumbers[randIndx] + "'");
-                    System.out.println("Let's try again, " + userName + "!");
+                    System.out.println("Let's try again, " + Cli.getUserName() + "!");
                     break;
                 }
         }
         if (counter == 3) {
-            System.out.println("Congratulations, " + userName + "!");
+            System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
     }
 }
