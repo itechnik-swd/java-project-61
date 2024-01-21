@@ -22,10 +22,10 @@ public class Progression {
 
             String questionNumbers = "";
             Random r = new Random();
-            int randIndx = r.nextInt(10);
+            int randIndex = r.nextInt(10);
 
             for (int i = 0; i < 10; i++) {
-                if (i == randIndx) {
+                if (i == randIndex) {
                     questionNumbers += ".. ";
                 } else {
                     questionNumbers += progressionNumbers[i] + " ";
@@ -37,12 +37,12 @@ public class Progression {
             Scanner sc = new Scanner(System.in);
             int userAnswer = sc.nextInt();
 
-                if (progressionNumbers[randIndx] == userAnswer) {
+                if (progressionNumbers[randIndex] == userAnswer) {
                     System.out.println("Correct!");
                     counter++;
                 } else {
                     System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                            + progressionNumbers[randIndx] + "'");
+                            + progressionNumbers[randIndex] + "'");
                     System.out.println("Let's try again, " + Cli.getUserName() + "!");
                     break;
                 }

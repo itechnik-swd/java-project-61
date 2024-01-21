@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Cli {
     private static String userName;
     Cli (String userName) {
-        this.userName = userName;
+        Cli.userName = userName;
     }
     public static void introduce() {
         Scanner scanner = new Scanner(System.in);
