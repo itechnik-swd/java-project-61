@@ -1,39 +1,57 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import static hexlet.code.Cli.introduce;
-import static hexlet.code.Even.parityCheck;
-import static hexlet.code.Prime.primeCheck;
-import static hexlet.code.Progression.makeProgression;
+
+import static hexlet.code.Cli.greet;
+import static hexlet.code.games.Calc.calculate;
+import static hexlet.code.games.Even.parityCheck;
+import static hexlet.code.games.GCD.getGCD;
+import static hexlet.code.games.Prime.primeCheck;
+import static hexlet.code.games.Progression.makeProgression;
 
 public class App {
+    /*
+    - отображение/вывод игрового меню
+    - выбор игры
+    - запуск/вызов выбранной игры
+    */
     public static void main(String[] args) {
+        // вывод игрового меню
         System.out.println("Please enter the game number and press Enter.");
+        String menu = "1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit";
+        System.out.println(menu);
 
-        String[] menu = {"1 - Greet", "2 - Even", "3 - Calc", "4 - GCD",
-                "5 - Progression", "6 - Prime", "0 - Exit"};
-
-        for (String element : menu) {
-            System.out.println(element);
-        }
-
+        // выбор игры
         System.out.print("Your choice: ");
         Scanner sc = new Scanner(System.in);
-        int selectedNumber = sc.nextInt();
+        int selectedGameNumber = sc.nextInt();
 
-        switch (selectedNumber) {
+        // кол-во раундов
+        int roundsNumber = 3;
+        // вызов выбранной игры
+        switch (selectedGameNumber) {
+            case 0:
+                System.out.println("See you later!");
             case 1:
-                introduce();
+                greet();
                 break;
             case 2:
-                parityCheck();
+                parityCheck(roundsNumber);
+                break;
+            case 3:
+                calculate(roundsNumber);
+                break;
+            case 4:
+                getGCD(roundsNumber);
                 break;
             case 5:
-                makeProgression();
+                makeProgression(roundsNumber);
                 break;
             case 6:
-                primeCheck();
+                primeCheck(roundsNumber);
                 break;
+            default:
+                System.out.println("Please select a number from 0 to 6");
         }
     }
 }
