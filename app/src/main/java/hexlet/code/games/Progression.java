@@ -12,10 +12,13 @@ public class Progression {
         String[] correctAnswers = new String[roundsNumber];
 
         for (int i = 0; i < roundsNumber; i++) { // заполнение массива String[] questions
-            int progressionNumbersLength = rnd(5, 10);
+            final int minProgressionLength = 5;
+            final int maxProgressionLength = 10;
+            int progressionNumbersLength = rnd(minProgressionLength, maxProgressionLength);
             int[] progressionNumbers = new int[progressionNumbersLength];
-            progressionNumbers[0] = (int) (Math.random() * 10);
-            int summand = (int) (Math.random() * 10);
+            final int numbersSet = 10;
+            progressionNumbers[0] = (int) (Math.random() * numbersSet);
+            int summand = (int) (Math.random() * numbersSet);
 
             for (int j = 1; j < progressionNumbersLength; j++) { // заполнение внутреннего массива progressionNumbers
                 progressionNumbers[j] = summand + progressionNumbers[j - 1];

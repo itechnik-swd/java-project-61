@@ -35,7 +35,7 @@ public class Engine {
             }
         }
 
-        if (correctAnswersNumber == 3) {
+        if (correctAnswersNumber == questions.length) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

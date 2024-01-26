@@ -9,7 +9,8 @@ public class Prime {
         String[] correctAnswers = new String[roundsNumber];
 
         for (int i = 0; i < roundsNumber; i++) {
-            int questionNumber = (int) (Math.random() * 100);
+            final int numbersSet = 100;
+            int questionNumber = (int) (Math.random() * numbersSet);
             questions[i] = String.valueOf(questionNumber);
 
             if (isPrime(questionNumber)) {

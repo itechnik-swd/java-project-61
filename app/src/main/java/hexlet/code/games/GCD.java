@@ -9,8 +9,9 @@ public class GCD {
         String[] correctAnswers = new String[roundsNumber];
 
         for (int i = 0; i < roundsNumber; i++) {
-            int number1 = (int) (Math.random() * 100);
-            int number2 = (int) (Math.random() * 100);
+            final int numbersSet = 100;
+            int number1 = (int) (Math.random() * numbersSet);
+            int number2 = (int) (Math.random() * numbersSet);
 
             String question = number1 + " " + number2;
             questions[i] = question;

@@ -24,30 +24,30 @@ public class App {
         // выбор игры
         System.out.print("Your choice: ");
         Scanner sc = new Scanner(System.in);
-        int selectedGameNumber = sc.nextInt();
+        String selectedGameNumber = sc.next();
 
-        // кол-во раундов
-        int roundsNumber = 3;
+        // количество рацндов
+        final int roundsNumber = 3;
         // вызов выбранной игры
         switch (selectedGameNumber) {
-            case 0:
+            case "0":
                 System.out.println("See you later!");
-            case 1:
+            case "1":
                 greet();
                 break;
-            case 2:
+            case "2":
                 parityCheck(roundsNumber);
                 break;
-            case 3:
+            case "3":
                 calculate(roundsNumber);
                 break;
-            case 4:
+            case "4":
                 getGCD(roundsNumber);
                 break;
-            case 5:
+            case "5":
                 makeProgression(roundsNumber);
                 break;
-            case 6:
+            case "6":
                 primeCheck(roundsNumber);
                 break;
             default:

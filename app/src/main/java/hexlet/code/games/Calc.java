@@ -10,8 +10,9 @@ public class Calc {
         String[] correctAnswers = new String[roundsNumber];
 
         for (int i = 0; i < roundsNumber; i++) {
-            int operand1 = (int) (Math.random() * 100);
-            int operand2 = (int) (Math.random() * 100);
+            final int numbersSet = 100;
+            int operand1 = (int) (Math.random() * numbersSet);
+            int operand2 = (int) (Math.random() * numbersSet);
             String operators = "+-*";
 
             Random r = new Random();
