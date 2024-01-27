@@ -16,16 +16,16 @@ public class Progression {
         for (int row = 0; row < Engine.ROUNDS; row++) {
             final int minProgressionLength = 5;
             final int maxProgressionLength = 10;
-            final int PROGRESSION_LENGTH = generateNumber(minProgressionLength, maxProgressionLength);
+            final int progressionLength = generateNumber(minProgressionLength, maxProgressionLength);
             int first = getRandomInt();
             final int minSummand = 1;
             final int maxSummand = 100;
             int step = generateNumber(minSummand, maxSummand);
 
             Random r = new Random();
-            int hiddenMemberIndex = r.nextInt(PROGRESSION_LENGTH); // значение PROGRESSION_LENGTH НЕ включительно
+            int hiddenMemberIndex = r.nextInt(progressionLength); // значение PROGRESSION_LENGTH НЕ включительно
 
-            String[] progression = makeProgression(first, step, PROGRESSION_LENGTH);
+            String[] progression = makeProgression(first, step, progressionLength);
             String answer = progression[hiddenMemberIndex];
             progression[hiddenMemberIndex] = "..";
             String question = String.join(" ", progression);

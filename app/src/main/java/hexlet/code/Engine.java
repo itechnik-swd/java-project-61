@@ -10,7 +10,7 @@ public class Engine {
     чтобы эта логика была в одном месте и управляла играми.
     */
     public static final int ROUNDS = 3;
-    static final int numbersSet = 100;
+    static final int NUMBER_SET = 100;
 
     public static void launchTheGame(String headline, String[][] questionsAndCorrectAnswers) {
         System.out.println("\nWelcome to the Brain Games!");
@@ -44,6 +44,6 @@ public class Engine {
     }
 
     public static int getRandomInt() {
-        return (int) (Math.random() * numbersSet);
+        return (int) (Math.random() * NUMBER_SET);
     }
 }
