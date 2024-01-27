@@ -1,24 +1,25 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import static hexlet.code.Engine.getRandomInt;
 import static hexlet.code.Engine.launchTheGame;
 
 public class GCD {
-    public static void getGCD(int roundsNumber) {
+    public static void getGCD() {
         String headline = "Find the greatest common divisor of given numbers.";
-        String[] questions = new String[roundsNumber];
-        String[] correctAnswers = new String[roundsNumber];
+        String[][] questionsAndCorrectAnswers = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < roundsNumber; i++) {
-            final int numbersSet = 100;
-            int number1 = (int) (Math.random() * numbersSet);
-            int number2 = (int) (Math.random() * numbersSet);
+        for (int row = 0; row < Engine.ROUNDS; row++) {
+            int number1 = getRandomInt();
+            int number2 = getRandomInt();
 
             String question = number1 + " " + number2;
-            questions[i] = question;
-            correctAnswers[i] = String.valueOf(gcd(number1, number2));
+            questionsAndCorrectAnswers[row][0] = question;
+            questionsAndCorrectAnswers[row][1] = String.valueOf(gcd(number1, number2));
         }
 
-        launchTheGame(headline, questions, correctAnswers);
+        launchTheGame(headline, questionsAndCorrectAnswers);
     }
 
     static int gcd(int a, int b) {

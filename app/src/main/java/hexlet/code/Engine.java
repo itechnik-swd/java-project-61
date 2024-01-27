@@ -9,7 +9,10 @@ public class Engine {
     Главная задача этого шага (#6) – построить архитектуру запуска игр так,
     чтобы эта логика была в одном месте и управляла играми.
     */
-    public static void launchTheGame(String headline, String[] questions, String[] correctAnswers) {
+    public static final int ROUNDS = 3;
+    static final int numbersSet = 100;
+
+    public static void launchTheGame(String headline, String[][] questionsAndCorrectAnswers) {
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner scanner = new Scanner(System.in);
@@ -18,25 +21,29 @@ public class Engine {
         System.out.println(headline);
         int correctAnswersNumber = 0;
 
-        for (int i = 0; i < questions.length; i++) {
-            System.out.println("Question: " + questions[i]);
+        for (String[] pair : questionsAndCorrectAnswers) {
+            System.out.println("Question: " + pair[0]);
             System.out.print("Your answer: ");
             Scanner sc = new Scanner(System.in);
             String userAnswer = sc.next();
 
-            if (correctAnswers[i].equals(userAnswer)) {
+            if (pair[1].equals(userAnswer)) {
                 System.out.println("Correct!");
                 correctAnswersNumber++;
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(."
-                        + " Correct answer was '" + correctAnswers[i] + "'");
+                        + " Correct answer was '" + pair[1] + "'");
                 System.out.println("Let's try again, " + userName + "!");
                 break;
             }
         }
 
-        if (correctAnswersNumber == questions.length) {
+        if (correctAnswersNumber == ROUNDS) {
             System.out.println("Congratulations, " + userName + "!");
         }
+    }
+
+    public static int getRandomInt() {
+        return (int) (Math.random() * numbersSet);
     }
 }

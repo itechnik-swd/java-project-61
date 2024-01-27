@@ -1,46 +1,49 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
+import static hexlet.code.Engine.getRandomInt;
 import static hexlet.code.Engine.launchTheGame;
-import static hexlet.code.RandomInt.rnd;
+import static hexlet.code.Utils.generateNumber;
 
 public class Progression {
-    public static void makeProgression(int roundsNumber) {
+    public static void progression() {
         String headline = "What number is missing in the progression?";
-        String[] questions = new String[roundsNumber];
-        String[] correctAnswers = new String[roundsNumber];
+        String[][] questionsAndCorrectAnswers = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < roundsNumber; i++) { // заполнение массива String[] questions
+        for (int row = 0; row < Engine.ROUNDS; row++) {
             final int minProgressionLength = 5;
             final int maxProgressionLength = 10;
-            int progressionNumbersLength = rnd(minProgressionLength, maxProgressionLength);
-            int[] progressionNumbers = new int[progressionNumbersLength];
-            final int numbersSet = 10;
-            progressionNumbers[0] = (int) (Math.random() * numbersSet);
-            int summand = (int) (Math.random() * numbersSet);
+            final int PROGRESSION_LENGTH = generateNumber(minProgressionLength, maxProgressionLength);
+            int first = getRandomInt();
+            final int minSummand = 1;
+            final int maxSummand = 100;
+            int step = generateNumber(minSummand, maxSummand);
 
-            for (int j = 1; j < progressionNumbersLength; j++) { // заполнение внутреннего массива progressionNumbers
-                progressionNumbers[j] = summand + progressionNumbers[j - 1];
-            }
-
-            String questionNumbers = "";
             Random r = new Random();
-            int randIndex = r.nextInt(progressionNumbersLength); // значение progressionNumbersLength НЕ включительно
+            int hiddenMemberIndex = r.nextInt(PROGRESSION_LENGTH); // значение PROGRESSION_LENGTH НЕ включительно
 
-            for (int k = 0; k < progressionNumbersLength; k++) { // формирование элемента типа String для questions
-                if (k == randIndex) {
-                    questionNumbers += ".. ";
-                } else {
-                    questionNumbers += progressionNumbers[k] + " ";
-                }
-            }
+            String[] progression = makeProgression(first, step, PROGRESSION_LENGTH);
+            String answer = progression[hiddenMemberIndex];
+            progression[hiddenMemberIndex] = "..";
+            String question = String.join(" ", progression);
 
-            questions[i] = questionNumbers;
-            correctAnswers[i] = String.valueOf(progressionNumbers[randIndex]);
-
+            questionsAndCorrectAnswers[row][0] = question;
+            questionsAndCorrectAnswers[row][1] = answer;
         }
 
-        launchTheGame(headline, questions, correctAnswers);
+        launchTheGame(headline, questionsAndCorrectAnswers);
+    }
+
+    private static String[] makeProgression(int first, int step, int length) {
+        String[] progression = new String[length];
+
+        for (int i = 0; i < length; i += 1) {
+            progression[i] = Integer.toString(first + i * step);
+        }
+
+        return progression;
     }
 }

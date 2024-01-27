@@ -7,7 +7,7 @@ import static hexlet.code.games.Calc.calculate;
 import static hexlet.code.games.Even.parityCheck;
 import static hexlet.code.games.GCD.getGCD;
 import static hexlet.code.games.Prime.primeCheck;
-import static hexlet.code.games.Progression.makeProgression;
+import static hexlet.code.games.Progression.progression;
 
 public class App {
     /*
@@ -26,8 +26,6 @@ public class App {
         Scanner sc = new Scanner(System.in);
         String selectedGameNumber = sc.next();
 
-        // количество рацндов
-        final int roundsNumber = 3;
         // вызов выбранной игры
         switch (selectedGameNumber) {
             case "0":
@@ -36,22 +34,22 @@ public class App {
                 greet();
                 break;
             case "2":
-                parityCheck(roundsNumber);
+                parityCheck();
                 break;
             case "3":
-                calculate(roundsNumber);
+                calculate();
                 break;
             case "4":
-                getGCD(roundsNumber);
+                getGCD();
                 break;
             case "5":
-                makeProgression(roundsNumber);
+                progression();
                 break;
             case "6":
-                primeCheck(roundsNumber);
+                primeCheck();
                 break;
             default:
-                System.out.println("Please select a number from 0 to 6");
+                System.out.println("\n'" + selectedGameNumber + "' is incorrect.\nPlease select from '0' to '6'");
         }
     }
 }
