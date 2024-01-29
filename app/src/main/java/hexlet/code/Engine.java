@@ -10,7 +10,7 @@ public class Engine {
     чтобы эта логика была в одном месте и управляла играми.
     */
     public static final int ROUNDS = 3;
-    static final int NUMBER_SET = 100;
+    public static final int NUMBER_SET = 100;
 
     public static void launchTheGame(String headline, String[][] questionsAndCorrectAnswers) {
         System.out.println("\nWelcome to the Brain Games!");
@@ -19,7 +19,6 @@ public class Engine {
         String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(headline);
-        int correctAnswersNumber = 0;
 
         for (String[] pair : questionsAndCorrectAnswers) {
             System.out.println("Question: " + pair[0]);
@@ -29,21 +28,14 @@ public class Engine {
 
             if (pair[1].equals(userAnswer)) {
                 System.out.println("Correct!");
-                correctAnswersNumber++;
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(."
                         + " Correct answer was '" + pair[1] + "'");
                 System.out.println("Let's try again, " + userName + "!");
-                break;
+                return;
             }
         }
 
-        if (correctAnswersNumber == ROUNDS) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
-    }
-
-    public static int getRandomInt() {
-        return (int) (Math.random() * NUMBER_SET);
+        System.out.println("Congratulations, " + userName + "!");
     }
 }

@@ -2,8 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import static hexlet.code.Engine.getRandomInt;
+import static hexlet.code.Engine.NUMBER_SET;
 import static hexlet.code.Engine.launchTheGame;
+import static hexlet.code.Utils.generateNumber;
 
 public class GCD {
     public static void getGCD() {
@@ -11,8 +12,8 @@ public class GCD {
         String[][] questionsAndCorrectAnswers = new String[Engine.ROUNDS][2];
 
         for (int row = 0; row < Engine.ROUNDS; row++) {
-            int number1 = getRandomInt();
-            int number2 = getRandomInt();
+            int number1 = generateNumber(0, NUMBER_SET);
+            int number2 = generateNumber(0, NUMBER_SET);
 
             String question = number1 + " " + number2;
             questionsAndCorrectAnswers[row][0] = question;

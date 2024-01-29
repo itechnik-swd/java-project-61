@@ -2,9 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
-
-import static hexlet.code.Engine.getRandomInt;
+import static hexlet.code.Engine.NUMBER_SET;
 import static hexlet.code.Engine.launchTheGame;
 import static hexlet.code.Utils.generateNumber;
 
@@ -17,13 +15,11 @@ public class Progression {
             final int minProgressionLength = 5;
             final int maxProgressionLength = 10;
             final int progressionLength = generateNumber(minProgressionLength, maxProgressionLength);
-            int first = getRandomInt();
+            int first = generateNumber(0, NUMBER_SET);
             final int minSummand = 1;
             final int maxSummand = 100;
             int step = generateNumber(minSummand, maxSummand);
-
-            Random r = new Random();
-            int hiddenMemberIndex = r.nextInt(progressionLength); // значение PROGRESSION_LENGTH НЕ включительно
+            int hiddenMemberIndex = generateNumber(0, progressionLength - 1); // progressionLength НЕ включительно
 
             String[] progression = makeProgression(first, step, progressionLength);
             String answer = progression[hiddenMemberIndex];
